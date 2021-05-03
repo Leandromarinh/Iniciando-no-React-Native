@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { StyleSheet, Text, SafeAreaView, StatusBar, View } from 'react-native';
+
+import Calculator from './src/Pages/Calculator';
+
+import * as color from './src/Components/Constants/styles/colors';
+
+import ShoppingListStack from './src/routes/ShoppingList.routes';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import HomeTabs from './src/routes/BottomTab.routes';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    //<SafeAreaView>
+    // <StatusBar backgroundColor={color.fluxo} />
+    // <Calculator />
+    //</SafeAreaView>
+    <NavigationContainer>
+      <StatusBar backgroundColor={color.fluxo} />
+      <SafeAreaView style={styles.appContainer}>
+        <ShoppingListStack />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
